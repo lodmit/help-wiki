@@ -1,0 +1,108 @@
+<!--
+title: Sales Orders Page Overview
+description: 
+published: true
+date: 2024-07-03T02:26:02.322Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-04-21T15:59:41.662Z
+-->
+
+<h1>Sales Orders View</h1>
+<p>The Sales Orders Page in LodDepot serves as the main workspace, where most interactions with orders are conducted. Grasping the workflow and stages of order processing is crucial for operating correctly within LodDepot and fully utilizing all the tools available</p>
+<h2>Page Functions</h2>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/sales_order_overview_redesign.png"></figure>
+<p><mark class="marker-yellow">1</mark> Click New Order to start a new office order&nbsp;</p>
+<p><mark class="marker-yellow">2</mark> Quick selectors for New Orders, Posted Orders and All Orders. Clicking <strong>All</strong> will give you more selector options.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/all_orders_options.png"></figure>
+<p><mark class="marker-yellow">3</mark> You can sort each section by clicking one of the column headers to switch between ascending and descending order. *Applies to columns: Date, Ship, Customer, Account Number, Count, Weight, Route and Rep.&nbsp;<br><mark class="marker-yellow">4</mark>&nbsp;<br>- The Broken Link icon allows you to retrieve unsaved orders in case you accidentally close the window with a new order or lose connection.&nbsp;<br>- By clicking the Table icon the selected section (New, Posted or All) will be exported as an Excel file.&nbsp;<br>- The Gear icon allows you to optimize the visibility of columns in LodDepot and Excel export.<br><mark class="marker-yellow">5</mark> Order Items is a quick way to see all items inside each order. Select an order by clicking on it and then click order items to expand the list.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/sales_order_page_7.1.png"></figure>
+<ul>
+  <li>Within the <strong>Order Items </strong>you can quickly add new Items, Discounts, Non-Catalog Items, Returns and Customer Credit.</li>
+</ul>
+<h3>Search</h3>
+<p>You can also use the search function to quickly sort through the orders. LodDepot allows you to search orders by multiple parameters. Select one of them on the left-hand side of the search bar, then enter the value that you are searching for and, lastly, click the search icon to return the results.&nbsp;<br><strong>e.g.</strong> Search By State → Value: NY&nbsp;<br><br>Parameters Sales Rep, Region, D/Route will have a dropdown options.&nbsp;<br>Order Date and Ship Date will have a calendar to help you quickly pick the required date.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/seatch_function.png"></figure>
+<h2>Orders Flow</h2>
+<p>Each Sales Order &nbsp;has a status associated with it. The diagram below depicts the flow of each order from the moment you receive/create the order to the point when order is delivered and archived.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/order_flow_chart_1.png"></figure>
+<ol>
+  <li>Orders can be created via Office, Web Store or Mobile.</li>
+  <li>Once the order is created, it appears in the “New Orders” Selector.</li>
+  <li>New orders can be temporarily saved as Draft Orders or Pre-Orders. Pre order status can be assigned manually or it will be automatically assigned if there are pre-order items within the order.</li>
+  <li>If the order is ready to be processed, it needs to be approved. Upon approval of the order, the status of the order will change to Posted. If you are using an ERP/Quickbooks integration, the status will firstly change to Approved and then <u>automatically</u> switch to Posted status once the order is created in ERP/Quickbooks.&nbsp;<br><u>*The settings can be change to automatically approve all orders upon their receipt.</u><br>Tools→Settings→Sales Orders→Automation</li>
+  <li>After the order is posted, it can be sent to Picking. Extended Picking functionality is available with the Premium Plus Package.</li>
+  <li>When the order is picked, it returns back to Posted until it is delivered and eventually archived.&nbsp;<br><br>* Please see the section below for more details about how to change orders' statuses.</li>
+</ol>
+<h2>Working with the Orders</h2>
+<p>By clicking on the order select one or multiple orders to access the quick actions menu.</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/working_with_orders_5.png"></figure>
+<p><mark class="marker-yellow">(1)</mark> Edit allows you to go into the order to make changes such as add or remove items, change prices, change ship date and ship type, enter comments or save the order as Draft.&nbsp;<br><mark class="marker-yellow">(2)</mark> Approve Orders button will move the order into the next stage of the Order Flow and change it's status to Posted.&nbsp;</p>
+<p><mark class="marker-yellow">(3)</mark> If you track payments via LodDepot, you can select an order and add a record of payment.<br><u>To enable Payment tracking go to Tools→Settings→Features</u></p>
+<p><mark class="marker-yellow">(4)</mark> If you select an order in the Posted section, then instead of the Approve Orders button, you will have an option to send the order for picking .</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/working_with_orders_4.png"></figure>
+<p><mark class="marker-yellow">(5)</mark> Continued Below</p>
+<h2>Quick Actions: More Menu</h2>
+<figure class="image image_resized" style="width:100%;"><img src="/images/sales/sales_orders_page_overview/sales_order_page_5.png"></figure>
+<ol>
+  <li><strong>Edit Sales Order Details</strong> grants a quick access to the following features:<ul>
+      <li><u>Order Parameters</u><br>Change main parameters of the order such as, order and shipping dates, sales rep, order manager, term, account receivable, order tag or add comments and customer notes to the order.</li>
+      <li><u>Delivery Data</u><br>Here you can select the route and the stop number, add a delivery note, and customize your Bill of Landing.</li>
+      <li><u>Files</u><br>If you generate invoices through a third party application, you can upload them to the Files tab. Also, files tab is a convenient way to save signed copies of the invoices.</li>
+      <li><u>System</u><br>Get system information about the order such as, Order ID, GUID and Sync information.</li>
+      <li><u>Action Log</u><br>Action Log is a list of performed actions that relate to that particular order.</li>
+    </ul>
+  </li>
+  <li><strong>Re-Print Picking Ticket&nbsp;</strong><br>If you make changes to the order after the Picking Ticket has been printed, you can quickly send the updated Picking Ticket to the Printer.</li>
+  <li><strong>Copy Sales Order&nbsp;</strong><br>This function allows you to create a copy the selected order. You can change the customer, shipping type and date, and decide which prices to apply.</li>
+</ol>
+<p>4. <strong>Merge Sales Orders</strong><br>This function allows you to combine two or more sales orders into one. <u>All merging orders must have the same status and be from the same customer.</u></p>
+<p>5. <strong>Split Sales Order</strong><br>This function allows you to split one sales order into two or more by the following criteria:&nbsp;</p>
+<ul>
+  <li>By Item Invoice Category</li>
+  <li>By Items</li>
+  <li>By Pre-Order Status</li>
+</ul>
+<p>6. <strong>Price Bulk Update</strong><br>When you select multiple orders and click Price Bulk Update, the system will return a list of all unique items within the selected orders. You will have an option to alter the price for each item and subsequently apply that price to all selected orders.&nbsp;</p>
+<p>7. <strong>Price Level Recalculate</strong><br>This action refreshes the prices based on the current Price Level that applies to the selected customer.&nbsp;</p>
+<p>8. <strong>Set as Pre Order / Set as New Order / Archive Order</strong><br>The functionality of this button varies depending on the state of the order. If the order status is New, you can change it to Pre-Order status and vice versa for Pre Orders. For Posted orders, this button will give you an option of changing the status to Archived.&nbsp;</p>
+<p>9. <strong>Cancel Sales Order&nbsp;</strong></p>
+<p>10. <strong>Delete Sales Order&nbsp;</strong><br>The main difference between deleting and canceling the order is that Cancelled orders will still be reflected in the reports.&nbsp;</p>
+<p>11. <strong>Invoice</strong><br>Get a quick access to the .PDF Invoice</p>
+<p>12. <strong>Picking Ticket&nbsp;</strong><br>Get a quick access to the .PDF Picking Ticket or automatically send it to print.&nbsp;</p>
+<p>13. <strong>Multi-Orders Picking&nbsp;</strong><br>Select multiple orders to combine them into one Picking Ticket.&nbsp;</p>
+<p>14. <strong>Sales Order&nbsp;</strong><br>Get a quick access to the .PDF Sales Order</p>
+<p>15. <strong>Delivery Slip</strong><br>Get a quick access to the .PDF Delivery Slip</p>
+<p>16. <strong>Bill of Landing&nbsp;</strong><br>Get a quick access to the .PDF Bill of Landing</p>
+<p>17. <strong>Sales Order (Excel)</strong><br>Get a quick access to the .xlsx Sales Order</p>
+<p>18. <strong>To Purchase Template (Excel)</strong><br>This quick action will create a Purchase Template in Excel based on all items within the order selected.&nbsp;</p>
+<p>19. <strong>Email Sales Order to Customer&nbsp;</strong><br>A Sales Order will be emailed to the <u>main</u> customer's email.&nbsp;<br>*Emails are free of charge</p>
+<p>20. <strong>Email Invoice to Customer</strong><br>An Invoice will be emailed to the <u>main</u> customer's email.&nbsp;<br>*Emails are free of charge</p>
+<h2>Quick Actions: Right Click</h2>
+<p>Another way to quickly interact with Sales Orders is to Right-Click on one of the orders. You will get the following menu and the following actions can be performed:</p>
+<ul>
+  <li><u>Edit Sales Order Details&nbsp;</u></li>
+  <li><u>Picking Ticket</u> - access the .PDF Picking Ticket</li>
+  <li><u>Invoice</u> - access the .PDF Invoice</li>
+  <li><u>Sales Order</u> - access the .PDF Sales Order</li>
+  <li><u>Re-Print Picking Ticket</u></li>
+</ul>
+<figure class="image image_resized" style="width:40.2%;"><img src="/images/sales/sales_orders_page_overview/sales_order_page_13.png"></figure>
+<h2>Order Information</h2>
+<p>When you select an order, on the right hand side of the screen <strong>Order Information</strong> Tab will appear. Here you can view information about the order and the customer. You can also quickly navigate to the Customer card by clicking the button next to the Customer name <mark class="marker-yellow">(1)</mark>.&nbsp;</p>
+<figure class="image image_resized" style="width:30.01%;"><img src="/images/sales/sales_orders_page_overview/sales_order_page_10.1.png"></figure>
+<p>At the bottom section, you have three tabs:</p>
+<ul>
+  <li><u>Customer Orders</u><br>View all past order of the selected customer.</li>
+  <li><u>Change History</u><br>This tab relates to the selected order and allows you to view how the order was changed from the time it was created. To view in more detail click the button next to the stage, which you want to view <mark class="marker-yellow">(2)</mark>.</li>
+</ul>
+<figure class="image image_resized" style="width:31.57%;"><img src="/images/sales/sales_orders_page_overview/sales_order_page_11.1.png"></figure>
+<ul>
+  <li><u>Picking History</u><br>Similarly to Change History, Picking History allows you to view changes made to the order during the Picking stage. To view in detail click the button next to the Picking Stage <mark class="marker-yellow">(3)</mark>.</li>
+</ul>
+<figure class="image image_resized" style="width:30.63%;"><img src="/images/sales/sales_orders_page_overview/sales_order_page_12.1.png"></figure>
+<p><br>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br><br>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

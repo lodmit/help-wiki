@@ -1,0 +1,74 @@
+<!--
+title: LodDepot  REST API  V1
+description: 
+published: true
+date: 2024-09-27T21:04:14.773Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-04-22T21:42:30.802Z
+-->
+
+<h3><strong>Authentication</strong></h3>
+<p>The application sends a <strong>POST </strong>request to the token endpoint.<br>The request must include client credentials&nbsp; in the request body.&nbsp;</p>
+<p>Request <strong>clientId </strong>and <strong>clientSecret </strong>from LodDepot support</p>
+<p>The format of the endpoint URL is:<br><a href="https://ws.loddepot.com/api/v1/getAccessToken">https://ws.loddepot.com/api/v1/getAccessToken</a></p>
+<p>Client credentials request JSON format :</p>
+<blockquote>
+  <p>{<br>"companyCode":"COMPANYCODE",<br>"clientId":"&lt;clientID&gt;",<br>"clientSecret":"&lt;clientSecret&gt;"<br>}</p>
+</blockquote>
+<p>&nbsp;</p>
+<p>HTTP Response Request returns an Access token Access token&nbsp;is valid for one hour and can be used multiple times.</p>
+<blockquote>
+  <p>{</p>
+  <p>&nbsp; &nbsp; "companyName": "Demo INC.",<br>&nbsp; &nbsp; "companyLogoUrl": "http://loddepotstorage.blob.core.windows.net/company-files/de3d16c0-7f89-4955-8d28-459f0b2543ba.png",<br>&nbsp; &nbsp; "companyEmail": "support@company.com",<br>&nbsp; &nbsp; "companyPhone": "+1 (800) 000 0000 ",<br>&nbsp; &nbsp; "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb21wYW5…..,<br>&nbsp; &nbsp; "accessTokenExpired": "2023-01-22T22:13:09.8415903Z",<br>&nbsp; &nbsp; "tokenType": "Bearer"</p>
+  <p>}</p>
+</blockquote>
+<h3><strong>Sending an Data Request</strong></h3>
+<p>The Access Token must be included in every request as an Authorization Header <strong>Bearer </strong>Token.</p>
+<p>The structure of the authorization header is:</p>
+<blockquote>
+  <p>Authorization: Bearer &lt;accessToken&gt;</p>
+</blockquote>
+<p>You can send a GET request to get list of items:<br><a href="https://ws.loddepot.com/api/v1/ItemList?page=1">https://ws.loddepot.com/api/v1/ItemList?page=1</a></p>
+<p>The <strong>page </strong>parameter used for selecting a specific page of results,<br>request will return <strong>200</strong> records per page.</p>
+<p>The structure of the response:</p>
+<blockquote>
+  <p>{<br> "data": [],<br> "totalRecords": 370,<br>&nbsp; &nbsp; "page": 1,<br>&nbsp; &nbsp; "records": 200&nbsp;<br>}</p>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Available API</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h5>Items</h5>
+<p><strong>ItemList </strong>returns list of active items<br>GET<br>https://ws.loddepot.com/api/v1/ItemList</p>
+<p>&nbsp;</p>
+<p><strong>ItemAllList </strong>returns list of all items<br>GET<br>https://ws.loddepot.com/api/v1/ItemAllList</p>
+<p>&nbsp;</p>
+<p><strong>Item </strong>returns an item<br>GET<br>https://ws.loddepot.com/api/v1/Item/itemId<br>https://ws.loddepot.com/api/v1/Item/itemName<br>https://ws.loddepot.com/api/v1/Item/productCode<br>https://ws.loddepot.com/api/v1/Item/refNumber</p>
+<p>&nbsp;</p>
+<p><strong>ItemCategoryList </strong>returns list of Categories<br>GET<br>https://ws.loddepot.com/api/v1/ItemCategoryList</p>
+<p>&nbsp;</p>
+<p><strong>ItemBrandList </strong>returns list of Brands<br>GET<br>https://ws.loddepot.com/api/v1/ItemBrandList</p>
+<p>&nbsp;</p>
+<p><strong>UnitOfMeasureList </strong>returns list of UnitOfMeasures<br>GET<br>https://ws.loddepot.com/api/v1/UnitOfMeasureList</p>
+<p>&nbsp;</p>
+<h5>Customers</h5>
+<p><strong>CustomerList </strong>returns list of Customers<br>GET<br>https://ws.loddepot.com/api/v1/CustomerList</p>
+<p>&nbsp;</p>
+<p><strong>Customer </strong>returns a customer<br>GET<br>https://ws.loddepot.com/api/v1/Customer/customerId<br>https://ws.loddepot.com/api/v1/Customer/customerGuid<br>https://ws.loddepot.com/api/v1/Customer/accountNumber<br><br><strong>Customer </strong>inserts or update customer<br>POST<br>https://ws.loddepot.com/api/v1/Customer</p>
+<p>Post as a body</p>
+<blockquote>
+  <p>{<br>&nbsp; &nbsp; "customerId": &nbsp;“” , &nbsp;[optional , for update]<br>&nbsp; &nbsp; "customerGuid": "", [optional , for update]<br>&nbsp; &nbsp; "accountNumber": "DD-2342344423", &nbsp;[optional , for update]<br>&nbsp; &nbsp; "customerName": "Customer Name",<br>&nbsp; &nbsp; "contactName": "Name",<br>&nbsp; &nbsp; "contactNameAlt": <strong>null</strong>,<br>&nbsp; &nbsp; "phone": "+1 123 123 4567",<br>&nbsp; &nbsp; "phoneAlt": <strong>null</strong>,<br>&nbsp; &nbsp; "email": "customer@gmail.com",<br>&nbsp; &nbsp; "fax": <strong>null</strong><br>&nbsp; &nbsp; "salesRepName": <strong>null</strong>,<br>&nbsp; &nbsp; "creditLimit": 1000.00,<br>&nbsp; &nbsp; "notes": "Customer Note,<br>&nbsp; &nbsp; "term": "Net 60",<br>&nbsp; &nbsp; "deliveryRoute": "Route 1",<br>&nbsp; &nbsp; "region": "Tri-State",<br>&nbsp; &nbsp; "callFreq": "W02",<br>&nbsp; &nbsp; "callWeekDay": "MON",<br>&nbsp; &nbsp; "isActiveInCatalog": <strong>true</strong>,<br>&nbsp; &nbsp; "addresses": [<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr1": "370 Easy St.",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr2": "",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr3": "",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr4": "",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "city": "Middlefield",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "state": "CA",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "postalCode": "94482",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "country": "USA",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addressType": “BILLING”<br>&nbsp; &nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr1": "370 Easy St.",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr2": "",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr3": "",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addr4": "",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "city": "Middlefield",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "state": "CA",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "postalCode": "94482",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "country": "USA",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "addressType": “SHIPPING”<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; ],<br>}</p>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h5>Sales Orders</h5>
+<p><strong>SalesOrder </strong>returns a Sales order<br>GET<br>https://ws.loddepot.com/api/v1/SalesOrder/orderId<br>https://ws.loddepot.com/api/v1/SalesOrder/salesOrderGuid<br><br>SalesOrder inserts sales order<br>POST<br>https://ws.loddepot.com/api/v1/SalesOrder</p>
+<p>Post as a body</p>
+<blockquote>
+  <p>{ &nbsp;<br>&nbsp; &nbsp;"orderDate": "2024-08-21", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "shipDate": "2024-08-22", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "shipType": "DELIVERY", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "orderSource": "STORE", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "memo": <strong>null</strong>, &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "customerNote": <strong>null</strong>, &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "term": "Net 60", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "deliveryStop": <strong>null</strong>, &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "orderTag": <strong>null</strong>, &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; "poNumber": <strong>null</strong>, &nbsp;[optional&nbsp;]<br>&nbsp; &nbsp; "orderManager": <strong>null</strong>, &nbsp;[optional&nbsp;]<br>&nbsp; &nbsp; "items": [<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "itemId": 1234,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "itemName": "L0001234", &nbsp;[optional&nbsp;]<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"quantityUnit": 3.0000,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "quantityFreeUnit": null, &nbsp;[optional&nbsp;]<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "unitCode": "BOX",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "rate": 45.00&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "comments": <strong>null</strong>,<br>&nbsp; &nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; ],</p>
+  <p>&nbsp; &nbsp; "customer": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "customerId": 955600, &nbsp;[optional,&nbsp;one of the values below must be presented ]<br>&nbsp; &nbsp; &nbsp; &nbsp; "customerGuid": "eab5f360-ac71-47f7-aba3-3ed00ff703c8", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; &nbsp; &nbsp; "accountNumber": "DD-2342344423", &nbsp; [optional&nbsp;]<br>&nbsp; &nbsp; }<br>}</p>
+</blockquote>
+<p>&nbsp;</p>
+<p><br>&nbsp;</p>

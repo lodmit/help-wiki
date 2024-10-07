@@ -1,0 +1,109 @@
+<!--
+title: Item Taxes and Deposits Manager
+description: Ability to calculate and apply bottle deposits for sales order.
+published: true
+date: 2024-07-06T16:52:45.599Z
+tags: deposit, items
+editor: ckeditor
+dateCreated: 2024-01-29T18:23:12.425Z
+-->
+
+<h1>Item Taxes and Deposits Manager</h1>
+<p><a href="https://youtu.be/tjQtz_wa21g">https://youtu.be/tjQtz_wa21g</a></p>
+<h2><strong>Enable Deposits and Taxes Automation</strong></h2>
+<p>To activate this feature, go to <strong>Tools </strong>&gt;&gt; <strong>Settings </strong>&gt;&gt; <strong>Sales Order</strong> In the <strong>Automation </strong>section, enable the "<strong>Calculate and Apply Item Taxes or Deposits to Sales Order</strong>" option</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/bottle_deposits_1.png"></figure>
+<ul>
+  <li>Customers <strong>must have the state populated in their address</strong>, and the format should be in two uppercase letters, such as CA, CT, MA, NY.</li>
+  <li>&nbsp;</li>
+</ul>
+<h1><mark class="pen-green"><strong>Bottle Deposits</strong></mark></h1>
+<h2><strong>1. Create deposit item</strong><span class="text-big"><strong>&nbsp;</strong></span></h2>
+<p>To record the calculated deposit amount in the sales order, you need to create Non-Catalog item for each deposit type. Follow these steps:</p>
+<ul>
+  <li>Create a non-inventory item in <strong>ERP/QB</strong> or a new item in the LodDepot account.</li>
+  <li>Assign the item as a <strong>Non-Catalog item</strong>.</li>
+  <li>This item will be used to collect selected deposits for the specified state.</li>
+</ul>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/bottle_deposits_noncatalog_item.png"></figure>
+<h2><strong>2. Bottle Item Setup</strong></h2>
+<p><mark class="pen-red">*Important</mark><br>&nbsp;When item base unit is <strong>Case </strong>or <strong>Box </strong>provide &nbsp;<strong>Item Base Unit Count </strong>(quantity of bottles in case)&nbsp;</p>
+<ul>
+  <li>The deposit quantity will be calculated by multiplying the <strong>Order Quantity </strong>by the <strong>Items in the Base Unit</strong> and applied to orders where the customer's state matches the deposit state.</li>
+  <li>When the quantity of bottle items is modified, added, or removed, the system will automatically recalculate the deposit amount.</li>
+</ul>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/bottle_deposits_3.png">
+  <figcaption>Enter the count of items (bottles) in the base unit&nbsp;</figcaption>
+</figure>
+<h2>3. Add Deposit to Items Taxes and Deposit Manager</h2>
+<p>The final step is to create a deposit type inside the Taxes and Deposit Manager&nbsp;</p>
+<ol>
+  <li>Navigate to <strong>Item Management</strong> → <strong>Item Taxes and Deposits → click Add</strong></li>
+  <li><strong>Name your Deposit</strong> and <strong>select Tax/Deposit Type</strong> <mark class="marker-yellow">(1)</mark> → Bottle Deposit in this case</li>
+  <li>Enter <strong>Deposit Amount</strong> per bottle <mark class="marker-yellow">(1)</mark></li>
+  <li>Select the <strong>Tax/Deposit Item </strong><mark class="marker-yellow">(2)</mark></li>
+  <li>This deposit is applied on State basis, therefore write in the appropriate State <mark class="marker-yellow">(3)</mark><br><mark class="pen-red">*State must be written as an abbreviation and in capital letters</mark></li>
+  <li>Make sure that you make this deposit Active <mark class="marker-yellow">(4)</mark>. Since we are applying to a bottle deposit only to certain items, do <strong>not</strong> select <strong>Apply to Entire Order</strong></li>
+</ol>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/bottle_deposit_manager_add_ca.png"></figure>
+<p>7. After you create the deposit it will appear in Item Taxes and Deposits Manager. Last step is to add items, on which the bottle deposit should be applied. Select the bottle deposit and click <strong>Add to List</strong> <mark class="marker-yellow">(5)</mark> on the right hand side of the screen. Make sure to select all applicable items.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/bottle_deposit_add_items.png"></figure>
+<h1><mark class="pen-green">Item Taxes</mark></h1>
+<h2><strong>1. Create deposit item</strong><span class="text-big"><strong>&nbsp;</strong></span></h2>
+<p>To record the calculated tax amount in the sales order, you need to create or assign a Non-Catalog item for each tax type. Follow these steps:</p>
+<ul>
+  <li>Create a non-inventory item in ERP/QB or a new item in the LodDepot account.</li>
+  <li>Assign the item as a <strong>Non-Catalog item </strong><mark class="marker-yellow">(1)</mark></li>
+  <li>This item will be used to collect taxes.</li>
+</ul>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/sugar_tax_0.5l.png"></figure>
+<h2>2. Create a Tax Type in Items Taxes and Deposits Manager</h2>
+<p>The final step is to create a tax type inside the Taxes and Deposit Manager&nbsp;</p>
+<ol>
+  <li>Navigate to <strong>Item Management</strong> → <strong>Item Taxes and Deposits → click Add</strong></li>
+  <li><strong>Name your Tax</strong> and <strong>select Tax/Deposit Type</strong> <mark class="marker-yellow">(1)</mark> → Sugar Tax in this case</li>
+  <li>Enter <strong>Tax Amount</strong> per base unit amount &nbsp;<mark class="marker-yellow">(1)</mark></li>
+  <li>Select the <strong>Tax/Deposit Item </strong><mark class="marker-yellow">(2)</mark></li>
+  <li>This deposit is applied on State basis, therefore write in the appropriate State <mark class="marker-yellow">(3)</mark><br><mark class="pen-red">*State must be written as an abbreviation and in capital letters</mark></li>
+  <li>Make sure that you make this deposit Active <mark class="marker-yellow">(4)</mark>. Since we are applying to a bottle deposit only to certain items, do <strong>not</strong> select <strong>Apply to Entire Order</strong></li>
+</ol>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/sugar_tax.png"></figure>
+<p>7. After you create the tax it will appear in Item Taxes and Deposits Manager. Last step is to add items, on which the tax should be applied. Select the tax and click <strong>Add to List</strong> on the right hand side of the screen. Make sure to select all applicable items.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/sugar_tax_2.png"></figure>
+<h1><mark class="pen-green">Delivery Fee</mark></h1>
+<h2><strong>1. Create a delivery fee item</strong><span class="text-big"><strong>&nbsp;</strong></span></h2>
+<p>To record the calculated tax amount in the sales order, you need to create or assign a Non-Catalog item for each tax type. Follow these steps:</p>
+<ul>
+  <li>Create a non-inventory item in ERP/QB or a new item in the LodDepot account.</li>
+  <li>Assign the item as a <strong>Non-Catalog item </strong><mark class="marker-yellow">(1)</mark></li>
+  <li>This item will be used to collect delivery fees for that specific <strong>State, Route or Region</strong>.</li>
+</ul>
+<figure class="image image_resized" style="width:99.68%;"><img src="/images/items/bottle_deposits_automation/delivery_fee1.png"></figure>
+<h2>2. Create a Delivery Fee Type in Items Taxes and Deposits Manager</h2>
+<p>The final step is to create a Delivery Fee type inside the Taxes and Deposit Manager&nbsp;</p>
+<ol>
+  <li>Navigate to <strong>Item Management</strong> → <strong>Item Taxes and Deposits → click Add</strong></li>
+  <li><strong>Name your Delivery Fee</strong> and <strong>select Tax/Deposit Type</strong> → Delivery Fee in this case</li>
+  <li>Enter <strong>Fee Amount</strong> per <u>entire order</u></li>
+  <li>Select the <strong>Tax/Deposit Item → Delivery Fee </strong>that we created in Step 1</li>
+  <li>This fee can be applied based on several criteria: State, Tax Category, Route, Region<br><mark class="pen-red">*State must be written as an abbreviation and in capital letters</mark></li>
+  <li>Make sure that you make this deposit Active <mark class="marker-yellow">(4)</mark>. Since we are applying the Delivery Fee only to the entire order, select <strong>Apply to Entire Order</strong></li>
+</ol>
+<figure class="image image_resized" style="width:99.51%;"><img src="/images/items/bottle_deposits_automation/delivery_fee2.png"></figure>
+<h1>Tools</h1>
+<h2>Creating Tax Category, Route, Region</h2>
+<p>State, Tax Category, Route and Region all act as criteria based on which the tax/deposit or a fee are applied to Sales Orders of a Customer. Unlike States, you can create more <strong>Tax Categories</strong>, <strong>Routes</strong> and <strong>Regions</strong>.&nbsp;</p>
+<p>All three can be Criteria can be created in Settings<br><strong>Tools → Settings → Tables&nbsp;</strong></p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/settings_tables.png"></figure>
+<p>Select a <strong>Table Name</strong> and click <strong>Add</strong></p>
+<h4>Applying Criteria to Customers&nbsp;</h4>
+<p>Navigate to <strong>Customers/Vendors → Customers</strong>, select a customer and click <strong>Edit</strong></p>
+<p><strong>Tax Categories </strong><mark class="marker-yellow"><strong>(1)</strong></mark> (more than can be applied)<br><strong>Regions </strong><mark class="marker-yellow"><strong>(2)</strong></mark></p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/customer_tax_and_region.png"></figure>
+<p><strong>Routes </strong><mark class="marker-yellow"><strong>(3)</strong></mark></p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/customer_route.png"></figure>
+<h2>How to Remove Tax/Deposit or a Fee from a Sales Order?</h2>
+<p>You can remove fees, taxes or deposits from existing orders. Navigate to <strong>Sales Orders →</strong> <strong>select</strong> the order → click Edit&nbsp;</p>
+<p>In the comments section write the following:&nbsp;</p>
+<p><mark class="marker-yellow"><strong>NOFEE</strong></mark> - will remove the applied delivery fee<br><mark class="marker-yellow"><strong>NOTAX</strong></mark> - will remove the applied tax<br><mark class="marker-yellow"><strong>NODEPOSIT</strong></mark> - will remove bottle deposit<br><mark class="pen-red">* To remove all fees, taxes and deposits, you have to write all three codes in the comments.</mark><br><strong>→ Save the order </strong>and the code will be applied. To reverse, remove the code from the comments.&nbsp;</p>
+<figure class="image image_resized" style="width:100%;"><img src="/images/items/bottle_deposits_automation/edit_order.png"></figure>
